@@ -1,0 +1,9 @@
+{
+  "name": "Project NETRA",
+  "description": "A 'Talking AR Lens' for the visually impaired that identifies objects in real-time, provides high-context details, and speaks instructions and warnings.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}
