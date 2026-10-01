@@ -3,21 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-    <title>NetraOS - Tactical AR Visual Assistant</title>
-    <meta name="description" content="Next-Gen Tactical AR Visual Assistant & Real-Time Multimodal AI Companion powered by Google Gemini." />
+    <title>NetraOS - Tactical AR Visual Assistant & Multimodal Intelligence</title>
+    <meta name="description" content="Next-Gen Tactical AR Visual Assistant, Live Spatial Object Detection, and Real-Time Multimodal AI Companion powered by Google Gemini." />
     
-    <!-- Google Fonts & Google Material Symbols -->
+    <!-- Google Fonts & Online Material Symbols -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;0,700;1,400&family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Orbitron:wght@500;600;700;800;900&family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     
-    <!-- Tailwind CDN for responsive utility classes -->
+    <!-- Tailwind CSS CDN for utility styles -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              hud: {
+                cyan: '#06b6d4',
+                emerald: '#10b981',
+                amber: '#f59e0b',
+                rose: '#f43f5e',
+                dark: '#030712'
+              }
+            },
+            fontFamily: {
+              cyber: ['Orbitron', 'sans-serif'],
+              display: ['Syne', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+              sans: ['Rajdhani', 'Inter', 'sans-serif']
+            }
+          }
+        }
+      }
+    </script>
     
     <link rel="stylesheet" href="/index.css">
   </head>
-  <body class="bg-black text-cyan-50 antialiased selection:bg-cyan-500/30 selection:text-cyan-200">
+  <body class="bg-black text-cyan-50 antialiased selection:bg-cyan-500/30 selection:text-cyan-200 overflow-hidden select-none">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>

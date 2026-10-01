@@ -1,13 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Orbitron:wght@500;600;700;800;900&family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
 :root {
-  --cyan-glow: rgba(6, 182, 212, 0.4);
-  --cyan-bright: #06b6d4;
-  --emerald-glow: rgba(16, 185, 129, 0.4);
-  --emerald-bright: #10b981;
-  --rose-glow: rgba(244, 63, 94, 0.4);
-  --amber-glow: rgba(245, 158, 11, 0.4);
+  --hud-primary: #06b6d4;
+  --hud-primary-glow: rgba(6, 182, 212, 0.45);
+  --hud-primary-subtle: rgba(6, 182, 212, 0.12);
+  --hud-secondary: #10b981;
+  --hud-secondary-glow: rgba(16, 185, 129, 0.45);
+  --hud-accent: #38bdf8;
+  --hud-danger: #f43f5e;
+  --hud-warning: #f59e0b;
+  --hud-bg-dark: #030712;
+  --hud-card-bg: rgba(3, 7, 18, 0.85);
+}
+
+[data-theme="matrix"] {
+  --hud-primary: #10b981;
+  --hud-primary-glow: rgba(16, 185, 129, 0.5);
+  --hud-primary-subtle: rgba(16, 185, 129, 0.12);
+  --hud-accent: #34d399;
+}
+
+[data-theme="amber"] {
+  --hud-primary: #f59e0b;
+  --hud-primary-glow: rgba(245, 158, 11, 0.5);
+  --hud-primary-subtle: rgba(245, 158, 11, 0.12);
+  --hud-accent: #fbbf24;
+}
+
+[data-theme="crimson"] {
+  --hud-primary: #f43f5e;
+  --hud-primary-glow: rgba(244, 63, 94, 0.5);
+  --hud-primary-subtle: rgba(244, 63, 94, 0.12);
+  --hud-accent: #fb7185;
+}
+
+[data-theme="violet"] {
+  --hud-primary: #a855f7;
+  --hud-primary-glow: rgba(168, 85, 247, 0.5);
+  --hud-primary-subtle: rgba(168, 85, 247, 0.12);
+  --hud-accent: #c084fc;
 }
 
 .material-symbols-outlined {
@@ -34,7 +66,7 @@ html, body, #root {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background: #04080e;
+  background: var(--hud-bg-dark);
   font-family: 'Rajdhani', 'Inter', system-ui, -apple-system, sans-serif;
   color: #e0f2fe;
   position: fixed;
@@ -46,42 +78,46 @@ html, body, #root {
   font-family: 'Orbitron', monospace;
 }
 
+.font-display {
+  font-family: 'Syne', 'Orbitron', sans-serif;
+}
+
 .font-mono-code {
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* Cyber Tactical Cut-Corner Borders */
+/* Futuristic Chamfered Borders */
 .clip-tech-border {
   clip-path: polygon(
-    0 12px, 12px 0, 
-    calc(100% - 12px) 0, 100% 12px, 
-    100% calc(100% - 12px), calc(100% - 12px) 100%, 
-    12px 100%, 0 calc(100% - 12px)
+    0 10px, 10px 0, 
+    calc(100% - 10px) 0, 100% 10px, 
+    100% calc(100% - 10px), calc(100% - 10px) 100%, 
+    10px 100%, 0 calc(100% - 10px)
   );
 }
 
 .clip-tech-corner-tl {
-  clip-path: polygon(14px 0, 100% 0, 100% 100%, 0 100%, 0 14px);
+  clip-path: polygon(12px 0, 100% 0, 100% 100%, 0 100%, 0 12px);
 }
 
 .clip-tech-corner-br {
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
 }
 
 .clip-tech-corner-tr {
-  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
 }
 
 .clip-tech-corner-bl {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 12px 100%, 0 calc(100% - 12px));
 }
 
-/* Hologram & Scanline FX */
+/* Tactical Grid & Scanline Backgrounds */
 .hologram-grid {
   background-image: 
-    linear-gradient(rgba(6, 182, 212, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(6, 182, 212, 0.08) 1px, transparent 1px);
-  background-size: 32px 32px;
+    linear-gradient(rgba(6, 182, 212, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6, 182, 212, 0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
 .hologram-scanline {
@@ -95,36 +131,37 @@ html, body, #root {
   background-size: 100% 4px;
 }
 
+/* Laser Sweep Animation */
 @keyframes laser-sweep {
-  0% { top: -5%; opacity: 0; }
-  15% { opacity: 0.9; }
-  85% { opacity: 0.9; }
-  100% { top: 105%; opacity: 0; }
+  0% { top: -2%; opacity: 0; }
+  10% { opacity: 0.95; }
+  90% { opacity: 0.95; }
+  100% { top: 102%; opacity: 0; }
 }
 
 .animate-laser-sweep {
   position: absolute;
   left: 0;
   width: 100%;
-  height: 24px;
+  height: 20px;
   background: linear-gradient(
     to bottom,
     transparent,
-    rgba(6, 182, 212, 0.8),
-    rgba(34, 211, 238, 1),
-    rgba(6, 182, 212, 0.8),
+    var(--hud-primary-glow),
+    var(--hud-primary),
+    var(--hud-primary-glow),
     transparent
   );
-  box-shadow: 0 0 20px rgba(6, 182, 212, 0.8), 0 0 40px rgba(6, 182, 212, 0.4);
-  animation: laser-sweep 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  box-shadow: 0 0 25px var(--hud-primary-glow), 0 0 45px var(--hud-primary-glow);
+  animation: laser-sweep 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   pointer-events: none;
-  z-index: 30;
+  z-index: 25;
 }
 
 @keyframes radar-pulse {
-  0% { transform: scale(0.9); opacity: 0.8; }
-  50% { transform: scale(1.05); opacity: 1; box-shadow: 0 0 25px rgba(6, 182, 212, 0.6); }
-  100% { transform: scale(0.9); opacity: 0.8; }
+  0% { transform: scale(0.95); opacity: 0.7; }
+  50% { transform: scale(1.04); opacity: 1; box-shadow: 0 0 25px var(--hud-primary-glow); }
+  100% { transform: scale(0.95); opacity: 0.7; }
 }
 
 .animate-radar-pulse {
@@ -137,7 +174,7 @@ html, body, #root {
 }
 
 .animate-cyber-spin {
-  animation: cyber-spin 12s linear infinite;
+  animation: cyber-spin 14s linear infinite;
 }
 
 @keyframes cyber-spin-reverse {
@@ -146,35 +183,59 @@ html, body, #root {
 }
 
 .animate-cyber-spin-reverse {
-  animation: cyber-spin-reverse 8s linear infinite;
+  animation: cyber-spin-reverse 9s linear infinite;
 }
 
-/* Custom Scrollbar */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.02); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+/* Custom Tactical Scrollbars */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
+  width: 5px;
+  height: 5px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: rgba(6, 182, 212, 0.05);
+  background: rgba(6, 182, 212, 0.04);
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(6, 182, 212, 0.4);
+  background: rgba(6, 182, 212, 0.35);
   border-radius: 2px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(6, 182, 212, 0.8);
+  background: rgba(6, 182, 212, 0.7);
 }
 
 /* Mobile Safe Area */
-.pt-safe { padding-top: max(env(safe-area-inset-top), 12px); }
-.pb-safe { padding-bottom: max(env(safe-area-inset-bottom), 12px); }
+.pt-safe { padding-top: max(env(safe-area-inset-top), 14px); }
+.pb-safe { padding-bottom: max(env(safe-area-inset-bottom), 14px); }
 .mt-safe { margin-top: env(safe-area-inset-top); }
 .h-dvh { height: 100dvh; }
 
-/* Video Filter */
+/* Camera Viewport */
 video {
-  filter: contrast(1.08) brightness(1.05) saturate(1.1);
+  filter: contrast(1.06) brightness(1.04) saturate(1.08);
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(3, 7, 18, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+}
+
+.glass-panel-accent {
+  background: rgba(6, 182, 212, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(6, 182, 212, 0.4);
 }
